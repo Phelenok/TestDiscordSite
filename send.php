@@ -15,19 +15,19 @@ if (mail("koldof123456789@gmail.com", "Заявка с сайта", "ФИО:".$f
 } else {
     echo "при отправке сообщения возникли ошибки";
 }?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="refresh" content="3; url=index.html">
-<title>Спасибо! Мы свяжемся с вами!</title>
-<meta name="generator">
-<script type="text/javascript">
-setTimeout('location.replace("/index.html")', 3000);
-/*Изменить текущий адрес страницы через 3 секунды (3000 миллисекунд)*/
-</script> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
 </head>
 <body>
-<h1>Спасибо! Мы свяжемся с вами!</h1>
+	<form action="send.php" method="post">
+<input type="text" name="fio" placeholder="Укажите ФИО" required>
+<input type="text" name="email" placeholder="Укажите e-mail" required>
+<input type="submit" value="Отправить">
+</form>
+</form>
 </body>
 </html>
