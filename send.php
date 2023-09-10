@@ -1,22 +1,20 @@
 <?php
-/* Здесь проверяется существование переменных */
-if (isset($_POST['name'])) {$phone = $_POST['name'];}
-if (isset($_POST['phone'])) {$name = $_POST['phone'];}
- 
-/* Сюда впишите свою эл. почту */
-$myaddres  = "koldof123456789@gmail.com"; // кому отправляем
- 
-/* А здесь прописывается текст сообщения, \n - перенос строки */
-$mes = "Тема: Заказ обратного звонка!\nТелефон: $phone\nИмя: $name";
- 
-/* А эта функция как раз занимается отправкой письма на указанный вами email */
-$sub='Заказ'; //сабж
-$email='Заказ обратного звонка'; // от кого
-$send = mail ($myaddres,$sub,$mes,"Content-type:text/plain; charset = utf-8\r\nFrom:$email");
- 
-ini_set('short_open_tag', 'On');
-header('Refresh: 3; URL=index.html');
-?>
+$fio = $_POST['fio'];
+$email = $_POST['email'];
+$fio = htmlspecialchars($fio);
+$email = htmlspecialchars($email);
+$fio = urldecode($fio);
+$email = urldecode($email);
+$fio = trim($fio);
+$email = trim($email);
+//echo $fio;
+//echo "<br>";
+//echo $email;
+if (mail("koldof123456789@gmail.com", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email ,"From: koldof123456789@gmail.com \r\n"))
+ {     echo "сообщение успешно отправлено";
+} else {
+    echo "при отправке сообщения возникли ошибки";
+}?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
